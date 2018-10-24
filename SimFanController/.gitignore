@@ -1,0 +1,12 @@
+FanController.c
+FanController.h
+FanControllerMain.*
+
+FanController
+
+*.o
+a.out
+
+*~
+.DS_Store
+

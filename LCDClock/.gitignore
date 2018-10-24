@@ -1,0 +1,16 @@
+BUILD/
+.mbed
+mbed-os
+C12832_lcd
+C12832_lcd.lib
+
+LCDClock.c
+LCDClock.h
+LCDClockMain.c
+LCDClockMain.c.gen
+
+*.pyc
+
+*~
+.DS_Store
+

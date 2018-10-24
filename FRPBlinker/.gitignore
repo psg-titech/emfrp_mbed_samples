@@ -1,0 +1,14 @@
+BUILD/
+.mbed
+mbed-os
+
+Blinker.c
+Blinker.h
+BlinkerMain.c
+BlinkerMain.c.gen
+
+*.pyc
+
+*~
+.DS_Store
+

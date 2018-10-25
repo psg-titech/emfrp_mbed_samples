@@ -1,5 +1,6 @@
 SRCS = main.cpp
-COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET)
+COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET) --source . --source $(MBED_OS_DIR)
+MBED_OS_DIR = ../mbed-os
 TOOLCHAIN = GCC_ARM
 TARGET = LPC1768
 
@@ -7,22 +8,21 @@ TARGET = LPC1768
 
 all: build
 
-build: $(SRCS) mbed-os
+.mbed: $(MBED_OS_DIR)
+	mbed config root .
+	mbed config MBED_OS_DIR $(MBED_OS_DIR)
+
+build: $(SRCS) .mbed
 	mbed compile $(COMPOPTS)
 
-install: build
+install: $(SRCS) .mbed
 	mbed compile $(COMPOPTS) -f
-
-mbed-os:
-	ln -s ../mbed-os .
 
 clean:
 
 allclean: clean
 	$(RM) -rf BUILD
-	$(RM) mbed-os
 	$(RM) .mbed
 	$(RM) *.o
 	$(RM) *~
 	$(RM) .DS_Store
-

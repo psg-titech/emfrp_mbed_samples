@@ -8,7 +8,6 @@ Originally developed by [Kensuke Sawada](https://github.com/sawaken)
 Connect your mbed via USB and do the following.
 
 ```Bash
-make
 make install
 ```
 

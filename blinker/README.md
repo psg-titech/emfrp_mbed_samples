@@ -7,7 +7,6 @@ Periodically blinks an LED on mbed LCP1768 main board
 Connect your mbed via USB and do the following.
 
 ```Bash
-make
 make install
 ```
 

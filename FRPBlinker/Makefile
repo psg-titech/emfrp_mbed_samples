@@ -1,7 +1,8 @@
 PROGNAME = FRPBlinker
 GENSRCS = $(PROGNAME).cpp $(PROGNAME).h
 SRCS = main.cpp
-COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET)
+COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET) --source . --source $(MBED_OS_DIR)
+MBED_OS_DIR = ../mbed-os
 TOOLCHAIN = GCC_ARM
 TARGET = LPC1768
 
@@ -14,25 +15,23 @@ $(GENSRCS): $(PROGNAME).mfrp
 	mv $(PROGNAME).c $(PROGNAME).cpp
 	rm $(PROGNAME)Main.c.gen
 
-build: $(SRCS) $(GENSRCS) mbed-os
+.mbed: $(MBED_OS_DIR)
+	mbed config root .
+	mbed config MBED_OS_DIR $(MBED_OS_DIR)
+
+build: $(SRCS) $(GENSRCS) .mbed
 	mbed compile $(COMPOPTS)
 
-install: build
+install: $(SRCS) $(GENSRCS) .mbed
 	mbed compile $(COMPOPTS) -f
 
-mbed-os:
-	ln -s ../mbed-os .
-
 clean:
-	$(RM) $(PROGNAME).cpp $(PROGNAME).h
+	$(RM) $(GENSRCS)
 	$(RM) $(PROGNAME)Main.*
 
 allclean: clean
 	$(RM) -rf BUILD
-	$(RM) mbed-os
 	$(RM) .mbed
 	$(RM) *.o
 	$(RM) *~
 	$(RM) .DS_Store
-
-

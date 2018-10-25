@@ -1,5 +1,5 @@
 PROGNAME = FRPBlinker
-GENSRCS = $(PROGNAME).c $(PROGNAME).h
+GENSRCS = $(PROGNAME).cpp $(PROGNAME).h
 SRCS = main.cpp
 COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET)
 TOOLCHAIN = GCC_ARM
@@ -11,6 +11,8 @@ all: build
 
 $(GENSRCS): $(PROGNAME).mfrp
 	emfrp $<
+	mv $(PROGNAME).c $(PROGNAME).cpp
+	rm $(PROGNAME)Main.c.gen
 
 build: $(SRCS) $(GENSRCS) mbed-os
 	mbed compile $(COMPOPTS)
@@ -22,7 +24,7 @@ mbed-os:
 	ln -s ../mbed-os .
 
 clean:
-	$(RM) $(PROGNAME).c $(PROGNAME).h
+	$(RM) $(PROGNAME).cpp $(PROGNAME).h
 	$(RM) $(PROGNAME)Main.*
 
 allclean: clean

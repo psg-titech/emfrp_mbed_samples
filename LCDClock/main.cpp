@@ -1,8 +1,6 @@
-#include "mbed.h"
-#include "C12832_lcd.h"
-extern "C" {
+#include <mbed.h>
+#include <C12832_lcd.h>
 #include "LCDClock.h"
-}
 
 C12832_LCD lcd;
 Ticker t;
@@ -21,7 +19,6 @@ void display(int n, int mask, char c) {
   }
 }
 
-extern "C"
 void Input(int* btnMode, int* btnNext, int* btnRotate, int* pulse100ms) {
   *btnMode = center.read();
   *btnNext = right.read();
@@ -30,7 +27,6 @@ void Input(int* btnMode, int* btnNext, int* btnRotate, int* pulse100ms) {
   pulse100_flag = 0;
 }
 
-extern "C"
 void Output(int* hour, int* min, int* sec, int* maskHour, int* maskMin, int* maskSec) {
   lcd.cls();
   lcd.locate(45, 10);

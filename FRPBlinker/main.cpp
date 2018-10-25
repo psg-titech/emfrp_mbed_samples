@@ -1,20 +1,15 @@
 #include <mbed.h>
-
-extern "C" {
 #include "FRPBlinker.h"
-}
 
 Timer timer;
-DigitalOut _led1(LED1);
+DigitalOut _led(LED1);
 
-extern "C"
 void Input(int *msec) {
     *msec = timer.read_ms();
 }
 
-extern "C"
-void Output(int *led1) {
-    _led1 = *led1;
+void Output(int *led) {
+    _led = *led;
 }
 
 int main() {

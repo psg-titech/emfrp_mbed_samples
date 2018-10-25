@@ -1,7 +1,7 @@
 module FRPBlinker
 in  msec : Int
-out led1 : Bool
+out led : Bool
 use Std
 
-node led1 = msec % 1000 < 500
+node led = msec % 1000 < 500
 

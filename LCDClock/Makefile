@@ -1,5 +1,5 @@
 PROGNAME = LCDClock
-GENSRCS = $(PROGNAME).c $(PROGNAME).h
+GENSRCS = $(PROGNAME).cpp $(PROGNAME).h
 SRCS = main.cpp
 LIBS = mbed-os C12832_lcd
 COMPOPTS = -t $(TOOLCHAIN) -m $(TARGET)
@@ -12,6 +12,8 @@ all: build
 
 $(GENSRCS): $(PROGNAME).mfrp
 	emfrp $<
+	mv $(PROGNAME).c $(PROGNAME).cpp
+	rm $(PROGNAME)Main.c.gen
 
 build: $(SRCS) $(GENSRCS) $(LIBS)
 	mbed compile $(COMPOPTS)
@@ -26,7 +28,7 @@ C12832_lcd:
 	mbed add http://os.mbed.com/users/dreschpe/code/C12832_lcd/
 
 clean:
-	$(RM) $(PROGNAME).c $(PROGNAME).h
+	$(RM) $(PROGNAME).cpp $(PROGNAME).h
 	$(RM) $(PROGNAME)Main.*
 
 allclean: clean

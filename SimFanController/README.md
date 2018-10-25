@@ -1,10 +1,9 @@
-SimFanController
------
-A simple controller for electric fan (simulator) 
+# SimFanController
+
+A simple controller for electric fan (simulator)  
+This example is intended to run on a desktop (e.g., Linux, Mac)
 
 ## To run
-
-This example is intended to run on a desktop
 
 ```sh
 make

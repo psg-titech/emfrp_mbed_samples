@@ -1,6 +1,7 @@
 # LCDClock
 
-A simple digital clock (an example in Emfrp distribution)
+A simple digital clock (a sample application included in Emfrp distribution)  
+Originally developed by [Kensuke Sawada](https://github.com/sawaken)
 
 ## To run
 
@@ -20,7 +21,6 @@ make install
 Following libraries are required.
 * Basic IO library `mbed` (official)
 * LCD's manipulation library `C12832_lcd` (third-party)
-
 
 ## Requirements
 

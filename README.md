@@ -1,4 +1,6 @@
-# Emfrp sample applications for Mbed OS
+# emfrp_mbed_samples
+
+Emfrp sample applications for Mbed OS
 
 ## To clone this repository
 
@@ -14,7 +16,11 @@ cd emfrp_mbed_samples
 git submodule update --init --recursive
 ```
 
+## To run sample applications
+
+See README in each sample directory.
+
 ## Requirements
 
 * [Emfrp](https://github.com/psg-titech/emfrp)
-* [Mbed OS](https://os.mbed.com)
+* [mbed-cli](https://github.com/ARMmbed/mbed-cli)

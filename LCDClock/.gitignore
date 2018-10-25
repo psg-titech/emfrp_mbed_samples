@@ -5,8 +5,8 @@ C12832_lcd
 C12832_lcd.lib
 
 LCDClock.c
+LCDClock.cpp
 LCDClock.h
-LCDClockMain.c
 LCDClockMain.c.gen
 
 *.pyc

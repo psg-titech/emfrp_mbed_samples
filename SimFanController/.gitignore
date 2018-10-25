@@ -1,8 +1,8 @@
-FanController.c
-FanController.h
-FanControllerMain.*
+SimFanController.c
+SimFanController.h
+SimFanControllerMain.c.gen
 
-FanController
+SimFanController
 
 *.o
 a.out

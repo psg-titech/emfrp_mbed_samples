@@ -2,10 +2,10 @@ BUILD/
 .mbed
 mbed-os
 
-Blinker.c
-Blinker.h
-BlinkerMain.c
-BlinkerMain.c.gen
+FRPBlinker.c
+FRPBlinker.cpp
+FRPBlinker.h
+FRPBlinkerMain.c.gen
 
 *.pyc
 
